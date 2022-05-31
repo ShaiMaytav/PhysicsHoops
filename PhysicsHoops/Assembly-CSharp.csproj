@@ -56,10 +56,9 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\MyPhysics.cs" />
-    <Compile Include="Assets\Scripts\Collision.cs" />
-    <Compile Include="Assets\Scripts\MyCollider.cs" />
     <Compile Include="Assets\Scripts\PullRelease.cs" />
+    <Compile Include="Assets\Scripts\MySphereCollider.cs" />
+    <Compile Include="Assets\Scripts\MyPhysics.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

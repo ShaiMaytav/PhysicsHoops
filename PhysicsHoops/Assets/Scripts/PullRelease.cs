@@ -8,12 +8,17 @@ public class PullRelease : MonoBehaviour
     [SerializeField] Vector3 mouseReleasePos;
     [SerializeField] Vector3 shotDir;
     [SerializeField] float pullStrength;
+    [SerializeField] float xStrengthMultiplier = 1;
+    [SerializeField] float yStrengthMultiplier = 1;
+    [SerializeField] float zStrengthMultiplier = 1;
+    [SerializeField] float forceReducer = 1;  
+    [SerializeField] MyPhysics obj;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-       
+        obj = GetComponent<MyPhysics>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -22,6 +27,7 @@ public class PullRelease : MonoBehaviour
 
         GetMouseDownPos();
         GetMouseReleasePos();
+        release();
     }
 
     private void GetMouseDownPos()
@@ -34,16 +40,27 @@ public class PullRelease : MonoBehaviour
 
     private void GetMouseReleasePos()
     {
-        if (Input.GetMouseButtonUp(0))
-        {
+       
+       
             mouseReleasePos = Input.mousePosition;
-        }
+        
     }
 
     void CalShotDir()
     {
         shotDir = mouseDownPos - mouseReleasePos;
-        shotDir.z = shotDir.magnitude;
+        shotDir.z = shotDir.magnitude * zStrengthMultiplier;
+        shotDir.x *= xStrengthMultiplier;
+        shotDir.y *= yStrengthMultiplier;
+    }
+
+    void release()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            obj.enabled = true;
+            obj.AddForce(shotDir / forceReducer);
+        }
     }
 
 }

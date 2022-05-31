@@ -26,13 +26,13 @@ public class MyPhysics : MonoBehaviour
         //{
         //    force2Add.y = 0;
         //}
-        if (Input.anyKeyDown)
-        {
-            velocity = new Vector3(velocity.x, 0, velocity.z);
-            acc = Vector3.zero;
-            force = Vector3.zero;
-            AddForce(new Vector3 (0, 25, 0));
-        }
+        //if (Input.anyKeyDown)
+        //{
+        //    velocity = new Vector3(velocity.x, 0, velocity.z);
+        //    acc = Vector3.zero;
+        //    force = Vector3.zero;
+        //    AddForce(new Vector3 (0, 25, 0));
+        //}
     }
     
 
