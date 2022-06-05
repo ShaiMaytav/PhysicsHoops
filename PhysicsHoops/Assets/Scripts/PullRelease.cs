@@ -40,10 +40,7 @@ public class PullRelease : MonoBehaviour
 
     private void GetMouseReleasePos()
     {
-       
-       
             mouseReleasePos = Input.mousePosition;
-        
     }
 
     void CalShotDir()

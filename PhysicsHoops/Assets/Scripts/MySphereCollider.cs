@@ -15,6 +15,7 @@ public class MySphereCollider : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        center = transform.position;
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(center, radius);
     }
