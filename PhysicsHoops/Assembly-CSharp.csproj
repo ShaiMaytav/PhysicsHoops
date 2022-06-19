@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\PullRelease.cs" />
     <Compile Include="Assets\Scripts\MySphereCollider.cs" />
     <Compile Include="Assets\Scripts\MyPhysics.cs" />
+    <Compile Include="Assets\Scripts\MyBoxCollider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
