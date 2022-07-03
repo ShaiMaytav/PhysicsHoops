@@ -56,10 +56,13 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\MyBoxCollider.cs" />
     <Compile Include="Assets\Scripts\PullRelease.cs" />
     <Compile Include="Assets\Scripts\MySphereCollider.cs" />
     <Compile Include="Assets\Scripts\MyPhysics.cs" />
-    <Compile Include="Assets\Scripts\MyBoxCollider.cs" />
+    <Compile Include="Assets\Scripts\CollisionManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Hoop.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
