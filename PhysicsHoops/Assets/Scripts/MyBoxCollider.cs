@@ -7,6 +7,7 @@ public class MyBoxCollider : MonoBehaviour
     public float height;
     public float width;
     public float depth;
+    [HideInInspector]public bool didCollide;
 
     //bounds
     [HideInInspector] public float xMax;

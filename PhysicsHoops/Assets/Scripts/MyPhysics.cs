@@ -11,6 +11,7 @@ public class MyPhysics : MonoBehaviour
     [SerializeField] Vector3 acc;
     [SerializeField] bool useGravity;
     [SerializeField] Vector3 force2Add;
+    [SerializeField][Range(0, 1)] float bounce;
 
     private void Start()
     {
@@ -21,20 +22,15 @@ public class MyPhysics : MonoBehaviour
     {
         CalVelocity();
         ApplyForce();
-        //force2Add += gravityForce;
-        //if (force2Add.y <= 0)
-        //{
-        //    force2Add.y = 0;
-        //}
-        //if (Input.anyKeyDown)
-        //{
-        //    velocity = new Vector3(velocity.x, 0, velocity.z);
-        //    acc = Vector3.zero;
-        //    force = Vector3.zero;
-        //    AddForce(new Vector3 (0, 25, 0));
-        //}
     }
     
+    public void Bounce()
+    {
+        velocity = new Vector3(velocity.x, Mathf.Abs(velocity.y * bounce), velocity.z);
+        acc.y = 0;
+        force.y = 0;
+        //AddForce(new Vector3 (0, bounce, 0));
+    }
 
     public void ApplyForce()
     {
@@ -62,8 +58,13 @@ public class MyPhysics : MonoBehaviour
         }
         return force;
     }
-    
-    
+
+    public void ResetValues()
+    {
+        velocity = Vector3.zero;
+        acc = Vector3.zero;
+        force = Vector3.zero;
+    }
 
     #region TempTrash
     //private void OnTriggerEnter(Collider other)

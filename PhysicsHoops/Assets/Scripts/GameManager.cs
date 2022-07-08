@@ -2,27 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private CollisionManager collisionManager;
     [SerializeField] Text scoreText;
-    private int score = 0;
-    private void Start()
-    {
-        collisionManager = GetComponent<CollisionManager>();
-    }
+    [SerializeField] Text timerText;
+    [SerializeField] Transform scoreEndPos;
+    [SerializeField] GameObject endMenu;
+    [SerializeField] float time = 20;
+    public int score;
+    private static GameManager _instance;
+    public static GameManager Instance { get { return _instance; } }
 
-    private void FixedUpdate()
+
+    private void Awake()
     {
-        if (collisionManager.CheckCol())
+        if (_instance != null && _instance != this)
         {
-            Debug.Log("col");
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
         }
     }
 
-    void HandleScore()
+    private void Update()
     {
-
+        scoreText.text = string.Format("{0:0.00}", score);
+        HandleTimer();
     }
+
+    void HandleTimer() 
+    {
+        timerText.text = time.ToString();
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+        }
+        else
+        {
+            Time.timeScale = 0;
+            endMenu.SetActive(true);
+            scoreText.transform.position = scoreEndPos.position;
+        }
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
 }
