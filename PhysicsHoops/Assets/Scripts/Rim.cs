@@ -17,7 +17,7 @@ public class Rim : MonoBehaviour
     {
         if (coll.didCollide)
         {
-            ball.Bounce();
+            ball.Bounce();//activates bounce to the sphere collider
             coll.didCollide = false;
         }
     }

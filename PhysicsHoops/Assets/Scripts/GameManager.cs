@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        //singleton
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -34,6 +35,9 @@ public class GameManager : MonoBehaviour
         HandleTimer();
     }
 
+    /// <summary>
+    /// Handles the timer and what happens when it ends
+    /// </summary>
     void HandleTimer() 
     {
         timerText.text = time.ToString();
@@ -49,6 +53,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Restarts the scene
+    /// </summary>
     public void Restart()
     {
         Time.timeScale = 1f;

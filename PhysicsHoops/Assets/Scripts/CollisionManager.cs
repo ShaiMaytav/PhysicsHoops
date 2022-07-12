@@ -12,8 +12,13 @@ public class CollisionManager : MonoBehaviour
         CheckCol();
     }
 
+    /// <summary>
+    /// Checks collision between one sphere collider and a group of boxe colliders
+    /// </summary>
     public void CheckCol()
     {
+        //this code was stolen from here: https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_collision_detection
+        //i'd really like to learn whats going on here
         foreach (var box in boxes)
         {
             // get box closest point to sphere center by clamping

@@ -16,9 +16,12 @@ public class MySphereCollider : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position, radius);//drawas the sphere
     }
 
+    /// <summary>
+    /// Calculates the bounds of the sphere (forms a box)
+    /// </summary>
     void CalBounds()
     {
         Min = new Vector3(transform.position.x - radius, transform.position.y - radius, transform.position.z - radius);

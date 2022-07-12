@@ -21,9 +21,9 @@ public class ScoreBox : MonoBehaviour
     {
         if (coll.didCollide)
         {
-            GameManager.Instance.score++;
+            GameManager.Instance.score++;//increases score
             ball.ResetValues();
-            ball.transform.position = startPos;
+            ball.transform.position = startPos;//resets the ball's position
             Debug.Log("Score");
             ball.enabled = false;
             coll.didCollide = false;

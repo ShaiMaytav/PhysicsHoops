@@ -22,7 +22,7 @@ public class Ground : MonoBehaviour
         if (coll.didCollide)
         {
             ball.ResetValues();
-            ball.transform.position = startPos;
+            ball.transform.position = startPos;//resets the position of the ball
             Debug.Log("Ground");
             ball.enabled = false;
             coll.didCollide = false;

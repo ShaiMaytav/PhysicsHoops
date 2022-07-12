@@ -24,34 +24,49 @@ public class MyPhysics : MonoBehaviour
         ApplyForce();
     }
     
+    /// <summary>
+    /// Simluate bounce
+    /// </summary>
     public void Bounce()
     {
-        velocity = new Vector3(velocity.x, Mathf.Abs(velocity.y * bounce), velocity.z);
-        acc.y = 0;
-        force.y = 0;
-        //AddForce(new Vector3 (0, bounce, 0));
+        velocity = new Vector3(velocity.x, Mathf.Abs(velocity.y * bounce), velocity.z);//adds the bounce force to the y axis 
+        acc.y = 0;//resets y axis acceleration 
+        force.y = 0;//resets y axis acceleration
     }
 
+    /// <summary>
+    /// applies force and moves the object according to calculations
+    /// </summary>
     public void ApplyForce()
     {
-        CalculateForce();
-        transform.position += velocity * Time.deltaTime;
+        CalGravity();
+        transform.position += velocity * Time.deltaTime;//changes object's position
     }
 
+    /// <summary>
+    /// Calculates the acceleration and velocity
+    /// </summary>
     private void CalVelocity()
     {
-        acc = force / mass;
-        velocity = velocity + acc * Time.deltaTime;
+        acc = force / mass;//calculates acceleration according its formula
+        velocity = velocity + acc * Time.deltaTime;//updates the velocity
     }
 
+    /// <summary>
+    /// Adds a given force to the object's current force
+    /// </summary>
+    /// <param name="f">The given force</param>
     public void AddForce(Vector3 f)
     {
         velocity += f;
     }
 
-    private Vector3 CalculateForce()
+    /// <summary>
+    /// Calculates and applies gravity if useGravity is true
+    /// </summary>
+    /// <returns></returns>
+    private Vector3 CalGravity()
     {
-        //force += force2Add;
         if (useGravity)
         {
             force += gravityForce;
@@ -59,21 +74,13 @@ public class MyPhysics : MonoBehaviour
         return force;
     }
 
+    /// <summary>
+    /// Resets an object's velocity, acceleration and force
+    /// </summary>
     public void ResetValues()
     {
         velocity = Vector3.zero;
         acc = Vector3.zero;
         force = Vector3.zero;
     }
-
-    #region TempTrash
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log("check");
-    //    isFalling = false;
-    //    other.gameObject.GetComponent<Physics>().isFalling = false;
-
-    //}
-    #endregion
-
 }
