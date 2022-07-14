@@ -33,6 +33,9 @@ public class PullRelease : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gets the position on the screen where the player clicked
+    /// </summary>
     private void GetMouseDownPos()
     {
         if (Input.GetMouseButtonDown(0))
@@ -40,12 +43,19 @@ public class PullRelease : MonoBehaviour
             mouseDownPos = Input.mousePosition;
         }
     }
-
+    /// <summary>
+    /// Gets the postion of the mouse on the screen 
+    /// </summary>
     private void GetMouseReleasePos()
     {
             mouseReleasePos = Input.mousePosition;
     }
 
+    /// <summary>
+    /// Converts the 2D vector the player created 
+    /// using the mouse into a 3D vector with 
+    /// customizable multipliers
+    /// </summary>
     void CalShotDir()
     {
         shotDir = mouseDownPos - mouseReleasePos;
@@ -54,6 +64,9 @@ public class PullRelease : MonoBehaviour
         shotDir.y *= yStrengthMultiplier;
     }
 
+    /// <summary>
+    /// Activates physics behavior of an object when mouse0 is released
+    /// </summary>
     void release()
     {
         if (Input.GetMouseButtonUp(0))

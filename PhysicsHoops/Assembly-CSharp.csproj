@@ -59,7 +59,6 @@
     <Compile Include="Assets\Scripts\MyBoxCollider.cs" />
     <Compile Include="Assets\Scripts\CollisionManager.cs" />
     <Compile Include="Assets\Scripts\PullRelease.cs" />
-    <Compile Include="Assets\Scripts\Hoop.cs" />
     <Compile Include="Assets\Scripts\MySphereCollider.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Ground.cs" />

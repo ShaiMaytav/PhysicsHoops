@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        scoreText.text = string.Format("{0:0.00}", score);
+        scoreText.text = score.ToString();
         HandleTimer();
     }
 
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void HandleTimer() 
     {
-        timerText.text = time.ToString();
+        timerText.text = string.Format("{0:0.00}", time);
         if (time > 0)
         {
             time -= Time.deltaTime;
@@ -58,8 +58,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Restart()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
     }
 
 }

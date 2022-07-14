@@ -48,7 +48,7 @@ public class MyPhysics : MonoBehaviour
     /// </summary>
     private void CalVelocity()
     {
-        acc = force / mass;//calculates acceleration according its formula
+        acc = force / mass;//calculates acceleration
         velocity = velocity + acc * Time.deltaTime;//updates the velocity
     }
 
@@ -64,7 +64,7 @@ public class MyPhysics : MonoBehaviour
     /// <summary>
     /// Calculates and applies gravity if useGravity is true
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Returns a new vector equals </returns>
     private Vector3 CalGravity()
     {
         if (useGravity)
